@@ -9896,9 +9896,7 @@ function handleFileSelect(evt) {
             // Ajaxがdataを整形しない指定
             processData: false,
             // contentTypeもfalseに指定
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
+            contentType: false
         }).done(function (res) {
             // 送信せいこう！
             console.log('SUCCESS', res);
