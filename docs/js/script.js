@@ -9873,7 +9873,9 @@ function handleFileSelect(evt) {
 
     // files is a FileList of File objects. List some properties.
     var reader = new FileReader();
-    reader.readAsDataURL(files[0]);
+    console.log(file[0]);
+
+    reader.readAsBinaryString(files[0]);
     reader.onload = function (theFile) {
         var formData = new FormData();
         formData.append('apikey', 'mrRalhmnrn-cdgLCEDnbhm8BtTZ8GbywkVfU8fJTm8g');

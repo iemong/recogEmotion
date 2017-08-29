@@ -14,12 +14,14 @@ function handleFileSelect(evt) {
 
     // files is a FileList of File objects. List some properties.
     const reader = new FileReader();
-    reader.readAsDataURL(files[0]);
+    console.log(file[0]);
+    
+    reader.readAsBinaryString(files[0]);
     reader.onload = (theFile) => {
         const formData = new FormData();
         formData.append('apikey', 'mrRalhmnrn-cdgLCEDnbhm8BtTZ8GbywkVfU8fJTm8g');
         formData.append('wav', theFile.target.result);
-         
+        
         // const myHeaders = new Headers({
         //     'Content-Type': 'multipart/form-data'
         // });
@@ -51,8 +53,7 @@ function handleFileSelect(evt) {
         //     return response.json();
         // });
     };
-   
-  }
+}
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
