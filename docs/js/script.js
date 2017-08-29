@@ -9873,7 +9873,6 @@ function handleFileSelect(evt) {
 
     // files is a FileList of File objects. List some properties.
     var reader = new FileReader();
-    console.log(file[0]);
 
     reader.readAsBinaryString(files[0]);
     reader.onload = function (theFile) {
