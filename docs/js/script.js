@@ -9888,15 +9888,32 @@ function handleFileSelect(evt) {
             'Content-Type': 'multipart/form-data'
         });
 
-        fetch('https://api.webempath.net/v1/analyzeWav', {
-            method: 'POST',
-            headers: myHeaders,
-            body: formData,
-            mode: 'cors'
-        }).then(function (response) {
-            console.log(response.json());
-            return response.json();
+        _jquery2.default.ajax({
+            url: 'https://api.webempath.net/v1/analyzeWav',
+            method: 'post',
+            // dataに FormDataを指定
+            data: formData,
+            // Ajaxがdataを整形しない指定
+            processData: false,
+            // contentTypeもfalseに指定
+            contentType: false
+        }).done(function (res) {
+            // 送信せいこう！
+            console.log('SUCCESS', res);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            // しっぱい！
+            console.log('ERROR', jqXHR, textStatus, errorThrown);
         });
+
+        // fetch('https://api.webempath.net/v1/analyzeWav', {
+        //     method: 'POST',
+        //     headers: myHeaders,
+        //     body: formData
+        // })
+        // .then(response => {
+        //     console.log(response.json());
+        //     return response.json();
+        // });
     };
 }
 
