@@ -9884,9 +9884,9 @@ function handleFileSelect(evt) {
         formData.append('apikey', 'mrRalhmnrn-cdgLCEDnbhm8BtTZ8GbywkVfU8fJTm8g');
         formData.append('wav', theFile.target.result);
 
-        var myHeaders = new Headers({
-            'Content-Type': 'multipart/form-data'
-        });
+        // const myHeaders = new Headers({
+        //     'Content-Type': 'multipart/form-data'
+        // });
 
         _jquery2.default.ajax({
             url: 'https://api.webempath.net/v1/analyzeWav',
@@ -9896,7 +9896,9 @@ function handleFileSelect(evt) {
             // Ajaxがdataを整形しない指定
             processData: false,
             // contentTypeもfalseに指定
-            contentType: false
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         }).done(function (res) {
             // 送信せいこう！
             console.log('SUCCESS', res);
