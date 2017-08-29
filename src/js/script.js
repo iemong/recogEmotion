@@ -33,7 +33,6 @@ function handleFileSelect(evt) {
 
         fetch('https://api.webempath.net/v1/analyzeWav', {
             method: 'POST',
-            //headers: myHeaders,
             body: formData,
             mode: 'cors'
         })
