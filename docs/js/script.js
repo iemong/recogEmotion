@@ -9889,7 +9889,7 @@ function handleFileSelect(evt) {
         // });
 
         _jquery2.default.ajax({
-            url: 'https://api.webempath.net/v1/analyzeWav',
+            url: 'https://api.webempath.net/v2/analyzeWav',
             method: 'post',
             // dataに FormDataを指定
             data: formData,
