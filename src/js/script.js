@@ -13,15 +13,8 @@ function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
     // files is a FileList of File objects. List some properties.
-    var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
-      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate.toLocaleDateString(), '</li>');
-    }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
     const reader = new FileReader();
-    reader.readAsBinaryString(files[0]);
+    reader.readAsDataURL(files[0]);
     reader.onload = (theFile) => {
         const formData = new FormData();
         formData.append('apikey', 'mrRalhmnrn-cdgLCEDnbhm8BtTZ8GbywkVfU8fJTm8g');
